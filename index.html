@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numbers app</title>
+</head>
+<body>
+    <h1>Arithmetic</h1>
+    <input type="Number" id="one" name="one">
+    <label for="two"> + </label>
+    <input type="Number" id="two" name="two">
+    <button onclick="add()">=</button>
+    <input id="res" readonly></p>
+    
+        <script>
+            function add() {
+                const number1 = document.getElementById("one").value;
+                const number2 = document.getElementById("two").value;
+                fetch('/summation?number1=' + number1 + '&number2=' + number2)
+                    .then(response => response.text())
+                    .then(result => {
+                        document.getElementById('res').value = result;
+                    });
+
+                }
+        </script>
+    </body>
+</html>
